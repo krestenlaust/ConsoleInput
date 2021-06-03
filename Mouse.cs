@@ -1,19 +1,52 @@
-﻿using static ConsoleInput.Input;
-
-namespace ConsoleInput
+﻿namespace ConsoleInput
 {
+    using static ConsoleInput.Input;
+
+    /// <summary>
+    /// Contains logic for handling mouse button states and position-data based on events retrieved by Windows Console API.
+    /// </summary>
     public static class Mouse
     {
+        /// <summary>
+        /// Describes whether a given mouse button (by index) is currently registered as 'down'.
+        /// A given button in <c>MouseDown</c> is true as soon as <c>MousePress</c> is and stays true until <c>MouseUp</c> is.
+        /// In short: True the whole duration of a mouse press.
+        /// </summary>
+        public static readonly bool[] MouseDown = new bool[MOUSE_BUTTON_COUNT];
+
+        /// <summary>
+        /// Describes whether a given mouse button (by index) is just released.
+        /// A given button in <c>MouseUp</c> is true the only the first update after it was released.
+        /// </summary>
+        public static readonly bool[] MouseUp = new bool[MOUSE_BUTTON_COUNT];
+
+        /// <summary>
+        /// Describes whether a given mouse button (by index) is just pressed.
+        /// A given button in <c>MousePress</c> is true only the first update after it was pressed.
+        /// </summary>
+        public static readonly bool[] MousePress = new bool[MOUSE_BUTTON_COUNT];
+
+        /// <summary>
+        /// The amount of buttons available.
+        /// </summary>
         internal const int MOUSE_BUTTON_COUNT = 5;
-        public readonly static bool[] MouseDown = new bool[MOUSE_BUTTON_COUNT];
-        public readonly static bool[] MouseUp = new bool[MOUSE_BUTTON_COUNT];
-        public readonly static bool[] MousePress = new bool[MOUSE_BUTTON_COUNT];
+
+        private static readonly bool[] mouseDownPrevious = new bool[MOUSE_BUTTON_COUNT];
+        private static readonly bool[] mouseDownCurrent = new bool[MOUSE_BUTTON_COUNT];
+
+        /// <summary>
+        /// Column position of mouse (based on console window).
+        /// </summary>
         public static short x { get; private set; } = 0;
+
+        /// <summary>
+        /// Row position of mouse (based on console window).
+        /// </summary>
         public static short y { get; private set; } = 0;
 
-        private readonly static bool[] mouseDownPrevious = new bool[MOUSE_BUTTON_COUNT];
-        private readonly static bool[] mouseDownCurrent = new bool[MOUSE_BUTTON_COUNT];
-
+        /// <summary>
+        /// Called internally by Input class to update mouse input.
+        /// </summary>
         internal static void Update()
         {
             // mousebutton held down
@@ -21,7 +54,6 @@ namespace ConsoleInput
             {
                 MouseUp[i] = false;
                 MousePress[i] = false;
-
 
                 if (mouseDownCurrent[i] != mouseDownPrevious[i])
                 {
@@ -41,6 +73,10 @@ namespace ConsoleInput
             }
         }
 
+        /// <summary>
+        /// Modifies mouse state based on mouse event.
+        /// </summary>
+        /// <param name="mouseEvent">Event returned by ReadConsoleInput.</param>
         internal static void HandleMouseEvent(MOUSE_EVENT_RECORD mouseEvent)
         {
             switch (mouseEvent.dwEventFlags)
@@ -61,6 +97,7 @@ namespace ConsoleInput
                     {
                         mouseDownCurrent[n] = (mouseEvent.dwButtonState & (1 << n)) != 0;
                     }
+
                     break;
             }
         }
