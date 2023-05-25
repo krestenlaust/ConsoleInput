@@ -31,8 +31,8 @@
         /// </summary>
         internal const int MOUSE_BUTTON_COUNT = 5;
 
-        private static readonly bool[] mouseDownPrevious = new bool[MOUSE_BUTTON_COUNT];
-        private static readonly bool[] mouseDownCurrent = new bool[MOUSE_BUTTON_COUNT];
+        static readonly bool[] mouseDownPrevious = new bool[MOUSE_BUTTON_COUNT];
+        static readonly bool[] mouseDownCurrent = new bool[MOUSE_BUTTON_COUNT];
 
         /// <summary>
         /// Column position of mouse (based on console window).

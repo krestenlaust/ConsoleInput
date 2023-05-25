@@ -17,10 +17,11 @@
         /// Whether to ignore the mouse when polling events. If ignored then returns mouse events to the ConsoleInput buffer.
         /// </summary>
         public static bool IgnoreMouse;
-        private const int STD_INPUT_HANDLE = -10;
-        private const uint ENABLE_EXTENDED_FLAGS = 0x0080;
-        private const uint ENABLE_MOUSE_INPUT = 0x0010;
-        private static IntPtr stdInHandle;
+        
+        const int STD_INPUT_HANDLE = -10;
+        const uint ENABLE_EXTENDED_FLAGS = 0x0080;
+        const uint ENABLE_MOUSE_INPUT = 0x0010;
+        static IntPtr stdInHandle;
 
         internal enum MouseEventFlags // https://docs.microsoft.com/en-us/windows/console/mouse-event-record-str
         {
@@ -95,19 +96,19 @@
         }
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        private static extern IntPtr GetStdHandle(int nStdHandle);
+        static extern IntPtr GetStdHandle(int nStdHandle);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        private static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
+        static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        private static extern bool GetNumberOfConsoleInputEvents(IntPtr hConsoleInput, out uint lpcNumberOfEvents);
+        static extern bool GetNumberOfConsoleInputEvents(IntPtr hConsoleInput, out uint lpcNumberOfEvents);
 
         [DllImport("kernel32.dll", EntryPoint = "ReadConsoleInputW", CharSet = CharSet.Unicode)]
-        private static extern bool ReadConsoleInput(IntPtr hConsoleInput, [Out] INPUT_RECORD[] lpBuffer, uint nLength, out uint lpNumberOfEventsRead);
+        static extern bool ReadConsoleInput(IntPtr hConsoleInput, [Out] INPUT_RECORD[] lpBuffer, uint nLength, out uint lpNumberOfEventsRead);
 
         [DllImport("kernel32.dll", EntryPoint = "WriteConsoleInputW", CharSet = CharSet.Unicode, SetLastError = true)]
-        private static extern bool WriteConsoleInput(IntPtr hConsoleInput, INPUT_RECORD[] lpBuffer, uint nLength, out uint lpNumberOfEventsWritten);
+        static extern bool WriteConsoleInput(IntPtr hConsoleInput, INPUT_RECORD[] lpBuffer, uint nLength, out uint lpNumberOfEventsWritten);
 
         [StructLayout(LayoutKind.Sequential)]
         internal struct COORD
@@ -190,7 +191,7 @@
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        private struct INPUT_RECORD
+        struct INPUT_RECORD
         {
             public InputEventType EventType;
             public INPUT_RECORD_UNION Event;

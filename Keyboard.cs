@@ -8,10 +8,10 @@
     /// </summary>
     public static class Keyboard
     {
-        private static Dictionary<VirtualKey, Keystate> stateCurrent = new Dictionary<VirtualKey, Keystate>();
-        private static Dictionary<VirtualKey, Keystate> statePrevious = new Dictionary<VirtualKey, Keystate>();
+        static Dictionary<VirtualKey, Keystate> stateCurrent = new Dictionary<VirtualKey, Keystate>();
+        static Dictionary<VirtualKey, Keystate> statePrevious = new Dictionary<VirtualKey, Keystate>();
 
-        private static Dictionary<VirtualKey, bool> keyboardKeyDown = new Dictionary<VirtualKey, bool>();
+        static Dictionary<VirtualKey, bool> keyboardKeyDown = new Dictionary<VirtualKey, bool>();
         // private static Dictionary<VK, ushort> keyboardRepeatCount = new Dictionary<VK, ushort>();
 
         /// <summary>
