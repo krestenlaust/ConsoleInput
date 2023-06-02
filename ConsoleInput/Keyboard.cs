@@ -1,11 +1,13 @@
 ﻿namespace ConsoleInput
 {
+    using System;
     using System.Collections.Generic;
     using static ConsoleInput.Input;
 
     /// <summary>
     /// Contains logic for handling keyboard states based on event data.
     /// </summary>
+    [Obsolete("This API is obsolete, since it simply provides the behavior which is already provided in System")]
     public static class Keyboard
     {
         static Dictionary<VirtualKey, Keystate> stateCurrent = new Dictionary<VirtualKey, Keystate>();
