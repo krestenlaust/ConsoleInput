@@ -37,12 +37,12 @@
         /// <summary>
         /// Column position of mouse (based on console window).
         /// </summary>
-        public static short x { get; private set; } = 0;
+        public static short X { get; private set; } = 0;
 
         /// <summary>
         /// Row position of mouse (based on console window).
         /// </summary>
-        public static short y { get; private set; } = 0;
+        public static short Y { get; private set; } = 0;
 
         /// <summary>
         /// Called internally by Input class to update mouse input.
@@ -84,8 +84,8 @@
                 case MouseEventFlags.DOUBLE_CLICK:
                     break;
                 case MouseEventFlags.MOUSE_MOVED:
-                    x = mouseEvent.dwMousePosition.X;
-                    y = mouseEvent.dwMousePosition.Y;
+                    X = mouseEvent.dwMousePosition.X;
+                    Y = mouseEvent.dwMousePosition.Y;
                     break;
                 case MouseEventFlags.MOUSE_HWHEELED:
                     break;
