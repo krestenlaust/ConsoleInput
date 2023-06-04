@@ -1,5 +1,6 @@
 ﻿namespace ConsoleInput
 {
+    using System;
     using static ConsoleInput.Input;
 
     /// <summary>
@@ -12,18 +13,21 @@
         /// A given button in <c>MouseDown</c> is true as soon as <c>MousePress</c> is and stays true until <c>MouseUp</c> is.
         /// In short: True the whole duration of a mouse press.
         /// </summary>
+        [Obsolete("Use new mouse API instead.")]
         public static readonly bool[] MouseDown = new bool[MOUSE_BUTTON_COUNT];
 
         /// <summary>
         /// Describes whether a given mouse button (by index) is just released.
         /// A given button in <c>MouseUp</c> is true the only the first update after it was released.
         /// </summary>
+        [Obsolete("Use new mouse API instead.")]
         public static readonly bool[] MouseUp = new bool[MOUSE_BUTTON_COUNT];
 
         /// <summary>
         /// Describes whether a given mouse button (by index) is just pressed.
         /// A given button in <c>MousePress</c> is true only the first update after it was pressed.
         /// </summary>
+        [Obsolete("Use new mouse API instead.")]
         public static readonly bool[] MousePress = new bool[MOUSE_BUTTON_COUNT];
 
         /// <summary>
@@ -35,14 +39,18 @@
         static readonly bool[] mouseDownCurrent = new bool[MOUSE_BUTTON_COUNT];
 
         /// <summary>
-        /// Column position of mouse (based on console window).
+        /// Gets the column position of mouse (based on console window).
         /// </summary>
         public static short X { get; private set; } = 0;
 
         /// <summary>
-        /// Row position of mouse (based on console window).
+        /// Gets the row position of mouse (based on console window).
         /// </summary>
         public static short Y { get; private set; } = 0;
+
+        public static bool GetMouseDown(MouseButton button) => MouseDown[(int)button];
+
+        public static bool GetMousePressed(MouseButton button) => MousePress[(int)button];
 
         /// <summary>
         /// Called internally by Input class to update mouse input.

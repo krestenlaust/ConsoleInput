@@ -22,6 +22,8 @@ namespace PaintDotNet
             {
                 Input.Update();
 
+                Console.Title = $"{Mouse.MouseUp[0]} {Mouse.MouseDown[0]} {Mouse.MousePress[0]}";
+
                 if (Mouse.MouseDown[0])
                 {
                     Console.SetCursorPosition(Mouse.X, Mouse.Y);
