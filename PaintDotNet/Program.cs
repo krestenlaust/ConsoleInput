@@ -24,16 +24,16 @@ namespace PaintDotNet
 
                 Console.Title = $"{Mouse.MouseUp[0]} {Mouse.MouseDown[0]} {Mouse.MousePress[0]}";
 
-                if (Mouse.MouseDown[0])
+                if (Mouse.GetMouseDown(MouseButton.Left))
                 {
                     Console.SetCursorPosition(Mouse.X, Mouse.Y);
                     Console.Write('X');
                 }
 
-                if (Mouse.MousePress[1])
+                if (Mouse.GetMousePressed(MouseButton.Right))
                 {
                     RotateColor();
-                }                
+                }
 
                 if (Keyboard.KeyUp(Keyboard.VirtualKey.SPACE))
                 {
