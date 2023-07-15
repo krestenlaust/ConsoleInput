@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Input.cs" />
     <Compile Include="Keyboard.cs" />
+    <Compile Include="VirtualKey.cs" />
     <Compile Include="Mouse.cs" />
     <Compile Include="MouseButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
