@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{54AE4F9E-B1CD-4188-A681-A4511C911372}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>PaintDotNet</RootNamespace>
-    <AssemblyName>PaintDotNet</AssemblyName>
+    <ProjectGuid>{5352266B-A5DE-4D9B-908F-A5CAB53AAA7C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConsoleInput.WinAPI</RootNamespace>
+    <AssemblyName>ConsoleInput.WinAPI</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,24 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="COORD.cs" />
+    <Compile Include="FOCUS_EVENT_RECORD.cs" />
+    <Compile Include="InputEventHandling.cs" />
+    <Compile Include="InputEventType.cs" />
+    <Compile Include="INPUT_RECORD.cs" />
+    <Compile Include="INPUT_RECORD_UNION.cs" />
+    <Compile Include="KEY_EVENT_RECORD.cs" />
+    <Compile Include="MENU_EVENT_RECORD.cs" />
+    <Compile Include="MouseEventFlags.cs" />
+    <Compile Include="MOUSE_EVENT_RECORD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="StyleCop.Analyzers">
-      <Version>1.1.118</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ConsoleInput\ConsoleInput.csproj">
-      <Project>{74604290-9f66-4aeb-9edb-3ad1ebc20df0}</Project>
-      <Name>ConsoleInput</Name>
-    </ProjectReference>
+    <Compile Include="WINDOW_BUFFER_SIZE_RECORD.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

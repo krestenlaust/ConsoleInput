@@ -1,5 +1,5 @@
 ﻿using ConsoleInput.Logic;
-using static ConsoleInput.Input;
+using ConsoleInput.WinAPI;
 
 namespace ConsoleInput.Devices
 {

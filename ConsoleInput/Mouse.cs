@@ -1,7 +1,7 @@
 ﻿namespace ConsoleInput
 {
     using System;
-    using static ConsoleInput.Input;
+    using ConsoleInput.WinAPI;
 
     /// <summary>
     /// Contains logic for handling mouse button states and position-data based on events retrieved by Windows Console API.
