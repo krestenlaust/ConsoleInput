@@ -12,9 +12,9 @@ namespace ConsoleInput.Logic.Tests
             // Act
 
             // Assert
-            Assert.AreEqual(dff.RisingEdge, false);
-            Assert.AreEqual(dff.FallingEdge, false);
-            Assert.AreEqual(dff.Signal, false);
+            Assert.AreEqual(false, dff.RisingEdge);
+            Assert.AreEqual(false, dff.FallingEdge);
+            Assert.AreEqual(false, dff.Signal);
         }
 
         [TestMethod]
@@ -27,9 +27,9 @@ namespace ConsoleInput.Logic.Tests
             dff.ClockSignal(false);
 
             // Assert
-            Assert.AreEqual(dff.RisingEdge, false);
-            Assert.AreEqual(dff.FallingEdge, false);
-            Assert.AreEqual(dff.Signal, false);
+            Assert.AreEqual(false, dff.RisingEdge);
+            Assert.AreEqual(false, dff.FallingEdge);
+            Assert.AreEqual(false, dff.Signal);
         }
 
         [TestMethod]
@@ -42,8 +42,8 @@ namespace ConsoleInput.Logic.Tests
             dff.ClockSignal(true);
 
             // Assert
-            Assert.AreEqual(dff.RisingEdge, true);
-            Assert.AreEqual(dff.FallingEdge, false);
+            Assert.AreEqual(true, dff.RisingEdge);
+            Assert.AreEqual(false, dff.FallingEdge);
         }
 
         [TestMethod]
@@ -58,8 +58,8 @@ namespace ConsoleInput.Logic.Tests
             dff.ClockSignal(true);
 
             // Assert
-            Assert.AreEqual(dff.RisingEdge, true);
-            Assert.AreEqual(dff.FallingEdge, false);
+            Assert.AreEqual(true, dff.RisingEdge);
+            Assert.AreEqual(false, dff.FallingEdge);
         }
 
         [TestMethod]
@@ -73,8 +73,8 @@ namespace ConsoleInput.Logic.Tests
             dff.ClockSignal(false);
 
             // Assert
-            Assert.AreEqual(dff.RisingEdge, false);
-            Assert.AreEqual(dff.FallingEdge, true);
+            Assert.AreEqual(false, dff.RisingEdge);
+            Assert.AreEqual(true, dff.FallingEdge);
         }
 
         [TestMethod]
@@ -89,9 +89,9 @@ namespace ConsoleInput.Logic.Tests
             dff.ClockSignal(false);
 
             // Assert
-            Assert.AreEqual(dff.RisingEdge, false);
-            Assert.AreEqual(dff.FallingEdge, false);
-            Assert.AreEqual(dff.Signal, false);
+            Assert.AreEqual(false, dff.RisingEdge);
+            Assert.AreEqual(false, dff.FallingEdge);
+            Assert.AreEqual(false, dff.Signal);
         }
 
         [TestMethod]
@@ -105,8 +105,8 @@ namespace ConsoleInput.Logic.Tests
             dff.ClockSignal(true);
 
             // Assert
-            Assert.AreEqual(dff.RisingEdge, false);
-            Assert.AreEqual(dff.FallingEdge, false);
+            Assert.AreEqual(false, dff.RisingEdge);
+            Assert.AreEqual(false, dff.FallingEdge);
         }
 
         [TestMethod]
@@ -121,8 +121,8 @@ namespace ConsoleInput.Logic.Tests
             dff.ClockSignal(false);
 
             // Assert
-            Assert.AreEqual(dff.RisingEdge, false);
-            Assert.AreEqual(dff.FallingEdge, true);
+            Assert.AreEqual(false, dff.RisingEdge);
+            Assert.AreEqual(true, dff.FallingEdge);
         }
     }
 }
