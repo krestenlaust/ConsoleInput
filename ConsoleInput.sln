@@ -11,9 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintDotNet", "PaintDotNet\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleInput.Tests", "ConsoleInput.Tests\ConsoleInput.Tests.csproj", "{6BB250EB-5AA5-48D2-ADDF-13874E779FE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleInput.Logic.Tests", "ConsoleInput.Logic.Tests\ConsoleInput.Logic.Tests.csproj", "{EF0C8BDF-7E39-4EC1-B899-CC474B4D0EF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleInput.Logic.Tests", "ConsoleInput.Logic.Tests\ConsoleInput.Logic.Tests.csproj", "{EF0C8BDF-7E39-4EC1-B899-CC474B4D0EF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleInput.Logic", "ConsoleInput.Logic\ConsoleInput.Logic.csproj", "{CA2E37B7-07F4-4AB4-AB9B-29F3B18C164A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleInput.Logic", "ConsoleInput.Logic\ConsoleInput.Logic.csproj", "{CA2E37B7-07F4-4AB4-AB9B-29F3B18C164A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleInput.WinAPI", "ConsoleInput.WinAPI\ConsoleInput.WinAPI.csproj", "{5352266B-A5DE-4D9B-908F-A5CAB53AAA7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{CA2E37B7-07F4-4AB4-AB9B-29F3B18C164A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA2E37B7-07F4-4AB4-AB9B-29F3B18C164A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA2E37B7-07F4-4AB4-AB9B-29F3B18C164A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5352266B-A5DE-4D9B-908F-A5CAB53AAA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5352266B-A5DE-4D9B-908F-A5CAB53AAA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5352266B-A5DE-4D9B-908F-A5CAB53AAA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5352266B-A5DE-4D9B-908F-A5CAB53AAA7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
