@@ -4,7 +4,7 @@ namespace ConsoleInput.Logic
 {
     public class DataFlipFlopArray
     {
-        public bool[] Signals { get; init set; }
+        public bool[] Signals { get; private set; }
         readonly bool[] previousSignals;
 
         public DataFlipFlopArray(int size)
