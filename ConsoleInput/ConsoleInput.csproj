@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IButtonDevice.cs" />
     <Compile Include="ICursorDevice.cs" />
+    <Compile Include="IDevice.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Keyboard.cs" />
     <Compile Include="Devices\KeyboardV2.cs" />

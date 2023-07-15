@@ -1,6 +1,6 @@
 ﻿namespace ConsoleInput.Devices
 {
-    public class KeyboardV2 : IButtonDevice<KeyboardButton>
+    public class KeyboardV2 : IDevice, IButtonDevice<KeyboardButton>
     {
         public bool IsButtonDown(KeyboardButton button)
         {
@@ -13,6 +13,11 @@
         }
 
         public bool IsButtonReleased(KeyboardButton button)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update()
         {
             throw new System.NotImplementedException();
         }

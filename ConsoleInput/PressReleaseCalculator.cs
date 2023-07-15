@@ -1,6 +1,0 @@
-﻿namespace ConsoleInput
-{
-    class PressReleaseCalculator
-    {
-    }
-}
