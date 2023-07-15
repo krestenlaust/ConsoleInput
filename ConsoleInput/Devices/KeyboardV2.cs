@@ -1,19 +1,18 @@
 ﻿namespace ConsoleInput.Devices
 {
-    // TODO: Make copy of enum to fit name.
-    public class KeyboardV2 : IButtonDevice<Keyboard.VirtualKey>
+    public class KeyboardV2 : IButtonDevice<KeyboardButton>
     {
-        public bool IsButtonDown(Keyboard.VirtualKey button)
+        public bool IsButtonDown(KeyboardButton button)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool IsButtonPressed(Keyboard.VirtualKey button)
+        public bool IsButtonPressed(KeyboardButton button)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool IsButtonReleased(Keyboard.VirtualKey button)
+        public bool IsButtonReleased(KeyboardButton button)
         {
             throw new System.NotImplementedException();
         }
