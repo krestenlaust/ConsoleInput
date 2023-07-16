@@ -1,5 +1,6 @@
 ﻿namespace ConsoleInput
 {
+    using System;
     using System.Collections.Generic;
     using ConsoleInput.WinAPI;
 
