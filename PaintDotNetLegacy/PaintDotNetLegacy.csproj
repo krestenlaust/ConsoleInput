@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{54AE4F9E-B1CD-4188-A681-A4511C911372}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PaintDotNet</RootNamespace>
-    <AssemblyName>PaintDotNet</AssemblyName>
+    <RootNamespace>PaintDotNetLegacy</RootNamespace>
+    <AssemblyName>PaintDotNetLegacy</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

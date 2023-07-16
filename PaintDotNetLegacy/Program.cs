@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ConsoleInput;
 
-namespace PaintDotNet
+namespace PaintDotNetLegacy
 {
     class Program
     {
