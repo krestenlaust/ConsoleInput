@@ -42,6 +42,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockButtonDevice.cs" />
+    <Compile Include="MockInputManager.cs" />
     <Compile Include="PressBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,9 +61,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleInput.Logic\ConsoleInput.Logic.csproj">
-      <Project>{ca2e37b7-07f4-4ab4-ab9b-29f3b18c164a}</Project>
-      <Name>ConsoleInput.Logic</Name>
+    <ProjectReference Include="..\ConsoleInput\ConsoleInput.csproj">
+      <Project>{74604290-9f66-4aeb-9edb-3ad1ebc20df0}</Project>
+      <Name>ConsoleInput</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
