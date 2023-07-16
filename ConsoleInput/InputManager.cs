@@ -49,6 +49,11 @@ namespace ConsoleInput
         /// <inheritdoc/>
         public void Update()
         {
+            foreach (var item in devices)
+            {
+                item.Update();
+            }
+
             GetNumberOfConsoleInputEvents(stdInHandle, out uint numberOfEvents);
             INPUT_RECORD[] inputBuffer = new INPUT_RECORD[numberOfEvents];
 
@@ -104,11 +109,6 @@ namespace ConsoleInput
 
             // Rewrite unused ConsoleInput.
             WriteConsoleInput(stdInHandle, otherInputBuffer, otherInputCount, out uint _);
-
-            foreach (var item in devices)
-            {
-                item.Update();
-            }
         }
 
         /// <summary>
