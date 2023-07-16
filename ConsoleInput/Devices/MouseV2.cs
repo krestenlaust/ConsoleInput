@@ -13,8 +13,6 @@ namespace ConsoleInput.Devices
 
         readonly bool quickSelect;
         DataFlipFlopArray Dff;
-        short cursorX;
-        short cursorY;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MouseV2"/> class.
@@ -27,11 +25,11 @@ namespace ConsoleInput.Devices
             this.quickSelect = quickSelectEnabled;
         }
 
+        public short X { get; set; }
+
+        public short Y { get; set; }
+
         public uint GetConsoleMode() => (quickSelect ? 0 : ENABLE_EXTENDED_FLAGS) | ENABLE_MOUSE_INPUT;
-
-        public short GetX() => cursorX;
-
-        public short GetY() => cursorY;
 
         /// <summary>
         /// Modifies mouse state based on mouse event.
@@ -44,8 +42,8 @@ namespace ConsoleInput.Devices
                 case MouseEventFlags.DOUBLE_CLICK:
                     break;
                 case MouseEventFlags.MOUSE_MOVED:
-                    cursorX = mouseEvent.dwMousePosition.X;
-                    cursorY = mouseEvent.dwMousePosition.Y;
+                    X = mouseEvent.dwMousePosition.X;
+                    Y = mouseEvent.dwMousePosition.Y;
                     break;
                 case MouseEventFlags.MOUSE_HWHEELED:
                     break;
