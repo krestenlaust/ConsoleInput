@@ -1,6 +1,6 @@
 ﻿namespace ConsoleInput
 {
-    public enum KeyboardButton
+    public enum KeyboardButton : short
     {
         /// <summary>
         /// NOT USED. Left mouse button.

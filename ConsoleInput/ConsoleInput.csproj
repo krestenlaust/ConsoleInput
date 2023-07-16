@@ -44,12 +44,12 @@
     <Compile Include="IButtonDevice.cs" />
     <Compile Include="ICursorDevice.cs" />
     <Compile Include="IDevice.cs" />
-    <Compile Include="Input.cs" />
+    <Compile Include="Legacy\Input.cs" />
     <Compile Include="InputManager.cs" />
-    <Compile Include="Keyboard.cs" />
+    <Compile Include="Legacy\Keyboard.cs" />
     <Compile Include="KeyboardButton.cs" />
-    <Compile Include="VirtualKey.cs" />
-    <Compile Include="Mouse.cs" />
+    <Compile Include="Legacy\VirtualKey.cs" />
+    <Compile Include="Legacy\Mouse.cs" />
     <Compile Include="MouseButton.cs" />
     <Compile Include="Devices\KeyboardV2.cs" />
     <Compile Include="Devices\MouseV2.cs" />

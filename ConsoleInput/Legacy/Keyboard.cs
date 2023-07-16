@@ -6,6 +6,7 @@
     /// <summary>
     /// Contains logic for handling keyboard states based on event data.
     /// </summary>
+    [Obsolete("This API isn't supported any longer. Please use new InputManager and KeyboardV2 API.")]
     public static partial class Keyboard
     {
         static Dictionary<VirtualKey, Keystate> stateCurrent = new Dictionary<VirtualKey, Keystate>();

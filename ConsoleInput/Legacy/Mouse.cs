@@ -6,6 +6,7 @@
     /// <summary>
     /// Contains logic for handling mouse button states and position-data based on events retrieved by Windows Console API.
     /// </summary>
+    [Obsolete("This API isn't supported any longer. Please use new InputManager and MouseV2 API.")]
     public static class Mouse
     {
         /// <summary>
