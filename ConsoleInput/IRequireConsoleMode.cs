@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleInput
+﻿namespace ConsoleInput
 {
-    public interface IRequireConsoleMode
+    public interface IRequireConsoleMode : IDevice
     {
         uint GetConsoleMode();
     }
