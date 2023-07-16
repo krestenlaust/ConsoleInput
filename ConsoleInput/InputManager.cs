@@ -13,7 +13,17 @@ namespace ConsoleInput
             this.devices = devices;
 
             stdInHandle = GetStdHandle(STD_INPUT_HANDLE);
-            SetConsoleMode(stdInHandle, (quickSelect ? 0 : ENABLE_EXTENDED_FLAGS) | ENABLE_MOUSE_INPUT);
+
+            uint dwMode = 0;
+            foreach (var item in devices)
+            {
+                if (item is IRequireConsoleMode consoleModeGetter)
+                {
+                    dwMode |= consoleModeGetter.GetConsoleMode();
+                }
+            }
+
+            SetConsoleMode(stdInHandle, dwMode);
         }
 
         public void Update()

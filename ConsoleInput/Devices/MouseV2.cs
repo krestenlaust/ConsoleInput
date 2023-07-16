@@ -1,23 +1,33 @@
 ﻿using ConsoleInput.Logic;
 using ConsoleInput.WinAPI;
+using static ConsoleInput.WinAPI.InputEventHandling;
 
 namespace ConsoleInput.Devices
 {
-    public class MouseV2 : IDevice, IButtonDevice<MouseButton>, ICursorDevice
+    public class MouseV2 : IDevice, IRequireConsoleMode, IButtonDevice<MouseButton>, ICursorDevice
     {
         /// <summary>
         /// The amount of buttons available.
         /// </summary>
         public const int MouseButtonCount = 5;
 
+        readonly bool quickSelect;
         DataFlipFlopArray Dff;
         short cursorX;
         short cursorY;
 
-        public MouseV2()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MouseV2"/> class.
+        /// </summary>
+        /// <param name="quickSelectEnabled">If enabled, clicking results in normal console selection behavior.</param>
+        public MouseV2(bool quickSelectEnabled=false)
         {
             Dff = new DataFlipFlopArray(MouseButtonCount);
+
+            this.quickSelect = quickSelectEnabled;
         }
+
+        public uint GetConsoleMode() => (quickSelect ? 0 : ENABLE_EXTENDED_FLAGS) | ENABLE_MOUSE_INPUT;
 
         public short GetX() => cursorX;
 
