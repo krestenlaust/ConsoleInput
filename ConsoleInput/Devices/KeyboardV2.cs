@@ -4,7 +4,7 @@ using System;
 
 namespace ConsoleInput.Devices
 {
-    public class KeyboardV2 : IDevice, IButtonDevice<KeyboardButton>
+    public class KeyboardV2 : IDevice, IInputRecordObserver<KEY_EVENT_RECORD>, IButtonDevice<KeyboardButton>
     {
         DataFlipFlopArray Dff;
 
@@ -28,18 +28,19 @@ namespace ConsoleInput.Devices
 
         KeyboardButton GetButton(int index) => (KeyboardButton)GetEnumFromIndex(typeof(KeyboardButton), index);
 
-        /// <summary>
-        /// Called internally by <c>Input</c> when new keyboard events are registered. Updates keyboard state accordingly.
-        /// </summary>
-        /// <param name="keyEvent">The key event retrived by ReadConsoleInput.</param>
-        internal void HandleKeyboardEvent(KEY_EVENT_RECORD keyEvent)
-        {
-            Dff.Signals[GetIndex((KeyboardButton)keyEvent.wVirtualKeyCode)] = keyEvent.bKeyDown;
-        }
-
         static int GetIndexFromEnum(Type enumType, object enumValue) => Array.IndexOf(Enum.GetValues(enumType), enumValue);
 
         static object GetEnumFromIndex(Type enumType, int index) => Enum.GetValues(enumType).GetValue(index);
 
+        /// <summary>
+        /// Called internally by <c>InputManager</c> when new keyboard events are registered. Updates keyboard state accordingly.
+        /// </summary>
+        /// <param name="keyEvent">The key event retrived by ReadConsoleInput.</param>
+        public bool HandleEvent(KEY_EVENT_RECORD inputRecord)
+        {
+            Dff.Signals[GetIndex((KeyboardButton)inputRecord.wVirtualKeyCode)] = inputRecord.bKeyDown;
+
+            return false;
+        }
     }
 }

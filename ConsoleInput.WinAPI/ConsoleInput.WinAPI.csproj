@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="COORD.cs" />
     <Compile Include="FOCUS_EVENT_RECORD.cs" />
+    <Compile Include="IInputRecord.cs" />
     <Compile Include="InputEventHandling.cs" />
     <Compile Include="InputEventType.cs" />
     <Compile Include="INPUT_RECORD.cs" />

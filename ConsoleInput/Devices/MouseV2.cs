@@ -4,7 +4,7 @@ using static ConsoleInput.WinAPI.InputEventHandling;
 
 namespace ConsoleInput.Devices
 {
-    public class MouseV2 : IDevice, IRequireConsoleMode, IButtonDevice<MouseButton>, ICursorDevice
+    public class MouseV2 : IDevice, IInputRecordObserver<MOUSE_EVENT_RECORD>, IRequireConsoleMode, IButtonDevice<MouseButton>, ICursorDevice
     {
         /// <summary>
         /// The amount of buttons available.
@@ -33,22 +33,11 @@ namespace ConsoleInput.Devices
 
         public short GetY() => cursorY;
 
-        public bool IsButtonDown(MouseButton button) => Dff.Signals[(int)button];
-
-        public bool IsButtonPressed(MouseButton button) => Dff.IsRisingEdge((int)button);
-
-        public bool IsButtonReleased(MouseButton button) => Dff.IsFallingEdge((int)button);
-
-        public void Update()
-        {
-            Dff.ClockSignal();
-        }
-
         /// <summary>
         /// Modifies mouse state based on mouse event.
         /// </summary>
         /// <param name="mouseEvent">Event returned by ReadConsoleInput.</param>
-        internal void HandleMouseEvent(MOUSE_EVENT_RECORD mouseEvent)
+        public bool HandleEvent(MOUSE_EVENT_RECORD inputRecord)
         {
             switch (mouseEvent.dwEventFlags)
             {
@@ -71,6 +60,19 @@ namespace ConsoleInput.Devices
 
                     break;
             }
+
+            return false;
+        }
+
+        public bool IsButtonDown(MouseButton button) => Dff.Signals[(int)button];
+
+        public bool IsButtonPressed(MouseButton button) => Dff.IsRisingEdge((int)button);
+
+        public bool IsButtonReleased(MouseButton button) => Dff.IsFallingEdge((int)button);
+
+        public void Update()
+        {
+            Dff.ClockSignal();
         }
     }
 }
