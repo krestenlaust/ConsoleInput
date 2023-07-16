@@ -45,13 +45,14 @@
     <Compile Include="ICursorDevice.cs" />
     <Compile Include="IDevice.cs" />
     <Compile Include="Input.cs" />
+    <Compile Include="InputManager.cs" />
     <Compile Include="Keyboard.cs" />
     <Compile Include="KeyboardButton.cs" />
     <Compile Include="VirtualKey.cs" />
     <Compile Include="Mouse.cs" />
     <Compile Include="MouseButton.cs" />
-	  <Compile Include="Devices\KeyboardV2.cs" />
-	  <Compile Include="Devices\MouseV2.cs" />
+    <Compile Include="Devices\KeyboardV2.cs" />
+    <Compile Include="Devices\MouseV2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
