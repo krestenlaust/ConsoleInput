@@ -62,21 +62,43 @@ namespace ConsoleInput
 
             for (int i = 0; i < numberOfEvents; i++)
             {
+                bool rebufferEvent = false;
+
+                // TODO: Storing IInputRecordObservers as they are added to the manager, instead of looking every time.
                 foreach (var device in devices)
                 {
-                    
+                    bool? rebuffer = null;
+
+                    switch (inputBuffer[i].EventType)
+                    {
+                        case InputEventType.KEY_EVENT when device is IInputRecordObserver<KEY_EVENT_RECORD> keyObserver:
+                            rebuffer = keyObserver.HandleEvent(inputBuffer[i].Event.KeyEvent);
+                            break;
+                        case InputEventType.MOUSE_EVENT when device is IInputRecordObserver<MOUSE_EVENT_RECORD> mouseObserver:
+                            rebuffer = mouseObserver.HandleEvent(inputBuffer[i].Event.MouseEvent);
+                            break;
+                        case InputEventType.MENU_EVENT when device is IInputRecordObserver<MENU_EVENT_RECORD> menuObserver:
+                            rebuffer = menuObserver.HandleEvent(inputBuffer[i].Event.MenuEvent);
+                            break;
+                        case InputEventType.WINDOW_BUFFER_SIZE_EVENT when device is IInputRecordObserver<WINDOW_BUFFER_SIZE_RECORD> windowBuffersizeObserver:
+                            rebuffer = windowBuffersizeObserver.HandleEvent(inputBuffer[i].Event.WindowBufferSizeEvent);
+                            break;
+                        case InputEventType.FOCUS_EVENT when device is IInputRecordObserver<FOCUS_EVENT_RECORD> focusObserver:
+                            rebuffer = focusObserver.HandleEvent(inputBuffer[i].Event.FocusEvent);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (rebuffer == true)
+                    {
+                        rebufferEvent = true;
+                    }
                 }
-                switch (inputBuffer[i].EventType)
+
+                if (rebufferEvent)
                 {
-                    case InputEventType.KEY_EVENT when !IgnoreKeyboard:
-                        Keyboard.HandleKeyboardEvent(inputBuffer[i].Event.KeyEvent);
-                        break;
-                    case InputEventType.MOUSE_EVENT when !IgnoreMouse:
-                        Mouse.HandleMouseEvent(inputBuffer[i].Event.MouseEvent);
-                        break;
-                    default:
-                        otherInputBuffer[otherInputCount++] = inputBuffer[i];
-                        break;
+                    otherInputBuffer[otherInputCount++] = inputBuffer[i];
                 }
             }
 

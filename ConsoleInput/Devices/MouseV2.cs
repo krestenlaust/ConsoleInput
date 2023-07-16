@@ -37,7 +37,7 @@ namespace ConsoleInput.Devices
         /// Modifies mouse state based on mouse event.
         /// </summary>
         /// <param name="mouseEvent">Event returned by ReadConsoleInput.</param>
-        public bool HandleEvent(MOUSE_EVENT_RECORD inputRecord)
+        public bool HandleEvent(MOUSE_EVENT_RECORD mouseEvent)
         {
             switch (mouseEvent.dwEventFlags)
             {

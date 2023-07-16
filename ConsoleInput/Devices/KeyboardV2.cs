@@ -36,9 +36,9 @@ namespace ConsoleInput.Devices
         /// Called internally by <c>InputManager</c> when new keyboard events are registered. Updates keyboard state accordingly.
         /// </summary>
         /// <param name="keyEvent">The key event retrived by ReadConsoleInput.</param>
-        public bool HandleEvent(KEY_EVENT_RECORD inputRecord)
+        public bool HandleEvent(KEY_EVENT_RECORD keyEvent)
         {
-            Dff.Signals[GetIndex((KeyboardButton)inputRecord.wVirtualKeyCode)] = inputRecord.bKeyDown;
+            Dff.Signals[GetIndex((KeyboardButton)keyEvent.wVirtualKeyCode)] = keyEvent.bKeyDown;
 
             return false;
         }

@@ -10,10 +10,9 @@
     {
         /// <summary>
         /// Receives a copy of with GetConsoleInput.
-        /// Returns whether to return INPUT_RECORD to inputbuffer.
         /// </summary>
         /// <param name="inputRecord"></param>
-        /// <returns></returns>
+        /// <returns><c>true</c> if the event should be pushed back into the event buffer; otherwise, <c>false</c>.</returns>
         bool HandleEvent(T inputRecord);
     }
 }
