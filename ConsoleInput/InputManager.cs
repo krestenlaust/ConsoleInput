@@ -1,31 +1,52 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ConsoleInput.WinAPI;
 using static ConsoleInput.WinAPI.InputEventHandling;
 
 namespace ConsoleInput
 {
-    public class InputManager
+    public class InputManager : IInputManager
     {
-        readonly ICollection<IDevice> devices;
+        readonly ICollection<IDevice> devices = new List<IDevice>();
+        readonly IntPtr stdInHandle;
 
-        public InputManager(params IDevice[] devices)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InputManager"/> class.
+        /// </summary>
+        public InputManager()
         {
-            this.devices = devices;
-
             stdInHandle = GetStdHandle(STD_INPUT_HANDLE);
-
-            uint dwMode = 0;
-            foreach (var item in devices)
-            {
-                if (item is IRequireConsoleMode consoleModeGetter)
-                {
-                    dwMode |= consoleModeGetter.GetConsoleMode();
-                }
-            }
-
-            SetConsoleMode(stdInHandle, dwMode);
         }
 
+        /// <summary>
+        /// Adds the input device, and recalculates the preferred console mode.
+        /// </summary>
+        /// <param name="device"></param>
+        public void AddDevice(IDevice device)
+        {
+            devices.Add(device);
+
+            if (device is IRequireConsoleMode)
+            {
+                ReconfigureConsoleMode();
+            }
+        }
+
+        /// <summary>
+        /// Adds the input device, and recalculates the preferred console mode.
+        /// </summary>
+        /// <param name="device"></param>
+        public void RemoveDevice(IDevice device)
+        {
+            devices.Remove(device);
+
+            if (device is IRequireConsoleMode)
+            {
+                ReconfigureConsoleMode();
+            }
+        }
+
+        /// <inheritdoc/>
         public void Update()
         {
             GetNumberOfConsoleInputEvents(stdInHandle, out uint numberOfEvents);
@@ -41,6 +62,10 @@ namespace ConsoleInput
 
             for (int i = 0; i < numberOfEvents; i++)
             {
+                foreach (var device in devices)
+                {
+                    
+                }
                 switch (inputBuffer[i].EventType)
                 {
                     case InputEventType.KEY_EVENT when !IgnoreKeyboard:
@@ -62,6 +87,24 @@ namespace ConsoleInput
             {
                 item.Update();
             }
+        }
+
+        /// <summary>
+        /// Calculates the new console mode by all the devices with requirements.
+        /// </summary>
+        void ReconfigureConsoleMode()
+        {
+            uint aggregatedConsoleMode = 0;
+
+            foreach (var device in devices)
+            {
+                if (device is IRequireConsoleMode consoleModeGetter)
+                {
+                    aggregatedConsoleMode |= consoleModeGetter.GetConsoleMode();
+                }
+            }
+
+            SetConsoleMode(stdInHandle, aggregatedConsoleMode);
         }
     }
 }

@@ -44,6 +44,7 @@
     <Compile Include="IButtonDevice.cs" />
     <Compile Include="ICursorDevice.cs" />
     <Compile Include="IDevice.cs" />
+    <Compile Include="IInputManager.cs" />
     <Compile Include="IInputRecordObserver.cs" />
     <Compile Include="IRequireConsoleMode.cs" />
     <Compile Include="Legacy\Input.cs" />
