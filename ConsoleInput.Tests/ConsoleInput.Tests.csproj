@@ -42,7 +42,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MockButtonDevice.cs" />
     <Compile Include="MockInputManager.cs" />
     <Compile Include="PressBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
