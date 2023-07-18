@@ -1,6 +1,5 @@
 ﻿namespace ConsoleInput
 {
-    // TODO: Consider renaming this.
     public interface ICursorDevice
     {
         /// <summary>

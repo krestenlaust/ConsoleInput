@@ -4,11 +4,11 @@ using System;
 
 namespace ConsoleInput.Devices
 {
-    public class KeyboardV2 : IDevice, IInputRecordObserver<KEY_EVENT_RECORD>, IButtonDevice<KeyboardButton>
+    public class ConsoleKeyboard : IDevice, IInputRecordObserver<KEY_EVENT_RECORD>, IButtonDevice<KeyboardButton>
     {
         DataFlipFlopArray Dff;
 
-        public KeyboardV2()
+        public ConsoleKeyboard()
         {
             Dff = new DataFlipFlopArray(Enum.GetNames(typeof(KeyboardButton)).Length);
         }

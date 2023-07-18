@@ -4,7 +4,7 @@ using static ConsoleInput.WinAPI.InputEventHandling;
 
 namespace ConsoleInput.Devices
 {
-    public class MouseV2 : IDevice, IInputRecordObserver<MOUSE_EVENT_RECORD>, IRequireConsoleMode, IButtonDevice<MouseButton>, ICursorDevice
+    public class ConsoleMouse : IDevice, IInputRecordObserver<MOUSE_EVENT_RECORD>, IRequireConsoleMode, IButtonDevice<MouseButton>, ICursorDevice
     {
         /// <summary>
         /// The amount of buttons available.
@@ -15,10 +15,10 @@ namespace ConsoleInput.Devices
         DataFlipFlopArray Dff;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MouseV2"/> class.
+        /// Initializes a new instance of the <see cref="ConsoleMouse"/> class.
         /// </summary>
         /// <param name="quickSelectEnabled">If enabled, clicking results in normal console selection behavior.</param>
-        public MouseV2(bool quickSelectEnabled=false)
+        public ConsoleMouse(bool quickSelectEnabled=false)
         {
             Dff = new DataFlipFlopArray(MouseButtonCount);
 

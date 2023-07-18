@@ -54,8 +54,8 @@
     <Compile Include="Legacy\VirtualKey.cs" />
     <Compile Include="Legacy\Mouse.cs" />
     <Compile Include="MouseButton.cs" />
-    <Compile Include="Devices\KeyboardV2.cs" />
-    <Compile Include="Devices\MouseV2.cs" />
+    <Compile Include="Devices\ConsoleKeyboard.cs" />
+    <Compile Include="Devices\ConsoleMouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
