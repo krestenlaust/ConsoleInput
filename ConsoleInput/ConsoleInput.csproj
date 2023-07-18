@@ -41,12 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Input.cs" />
-    <Compile Include="Keyboard.cs" />
-    <Compile Include="Mouse.cs" />
+    <Compile Include="IButtonDevice.cs" />
+    <Compile Include="ICursorDevice.cs" />
+    <Compile Include="IDevice.cs" />
+    <Compile Include="IInputManager.cs" />
+    <Compile Include="IInputRecordObserver.cs" />
+    <Compile Include="IRequireConsoleMode.cs" />
+    <Compile Include="Legacy\Input.cs" />
+    <Compile Include="InputManager.cs" />
+    <Compile Include="Legacy\Keyboard.cs" />
+    <Compile Include="KeyboardButton.cs" />
+    <Compile Include="Legacy\VirtualKey.cs" />
+    <Compile Include="Legacy\Mouse.cs" />
     <Compile Include="MouseButton.cs" />
+    <Compile Include="Devices\ConsoleKeyboard.cs" />
+    <Compile Include="Devices\ConsoleMouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VirtualKey.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
@@ -57,6 +67,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleInput.Logic\ConsoleInput.Logic.csproj">
+      <Project>{ca2e37b7-07f4-4ab4-ab9b-29f3b18c164a}</Project>
+      <Name>ConsoleInput.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConsoleInput.WinAPI\ConsoleInput.WinAPI.csproj">

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{54AE4F9E-B1CD-4188-A681-A4511C911372}</ProjectGuid>
+    <ProjectGuid>{3AD768D6-470F-4A09-9CD4-FEBB52E7703D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>PaintDotNet</RootNamespace>
     <AssemblyName>PaintDotNet</AssemblyName>
@@ -50,17 +50,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleInput\ConsoleInput.csproj">
-      <Project>{74604290-9f66-4aeb-9edb-3ad1ebc20df0}</Project>
-      <Name>ConsoleInput</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.1.118</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleInput\ConsoleInput.csproj">
+      <Project>{74604290-9f66-4aeb-9edb-3ad1ebc20df0}</Project>
+      <Name>ConsoleInput</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
