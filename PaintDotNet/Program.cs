@@ -31,6 +31,18 @@ namespace PaintDotNet
 
                 Console.Title = $"{mouse.IsButtonPressed(MouseButton.Left)} {mouse.IsButtonDown(MouseButton.Left)} {mouse.IsButtonReleased(MouseButton.Left)}";
 
+                if (mouse.IsButtonPressed(MouseButton.MouseWheel))
+                {
+                    Console.SetCursorPosition(mouse.X, mouse.Y);
+                    Console.Write("Pressed");
+                }
+
+                if (mouse.IsButtonReleased(MouseButton.MouseWheel))
+                {
+                    Console.SetCursorPosition(mouse.X, mouse.Y);
+                    Console.Write("Release");
+                }
+
                 if (mouse.IsButtonDown(MouseButton.Left))
                 {
                     Console.SetCursorPosition(mouse.X, mouse.Y);
