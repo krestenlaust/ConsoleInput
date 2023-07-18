@@ -7,6 +7,7 @@
     /// <summary>
     /// Handles console input.
     /// </summary>
+    [Obsolete("This API isn't supported any longer. Please use new InputManager API.")]
     public static class Input
     {
         /// <summary>

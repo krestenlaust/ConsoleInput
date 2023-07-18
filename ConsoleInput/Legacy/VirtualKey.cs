@@ -1,10 +1,13 @@
-﻿namespace ConsoleInput
+﻿using System;
+
+namespace ConsoleInput
 {
     public static partial class Keyboard
     {
         /// <summary>
         /// Denotes a key on the keyboard.
         /// </summary>
+        [Obsolete("This enum is prat of an unsupported API. Please use KeyboardButton with new InputManager and KeyboardV2 API.")]
         public enum VirtualKey : short
         {
             /// <summary>

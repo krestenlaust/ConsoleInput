@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using ConsoleInput;
+using ConsoleInput.Devices;
 
 namespace PaintDotNet
 {
@@ -12,30 +14,47 @@ namespace PaintDotNet
         static void Main(string[] args)
         {
             ConsoleColours = Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>().ToList();
-
             Console.CursorVisible = false;
-            Input.Setup(true, true);
+
+            ConsoleMouse mouse = new ConsoleMouse();
+            ConsoleKeyboard keyboard = new ConsoleKeyboard();
+
+            IInputManager inputManager = new InputManager();
+            inputManager.AddDevice(mouse);
+            inputManager.AddDevice(keyboard);
 
             Console.WriteLine("Try pressing/dragging the primary or secondary mouse button!");
 
             while (true)
             {
-                Input.Update();
+                inputManager.Update();
 
-                Console.Title = $"{Mouse.MouseUp[0]} {Mouse.MouseDown[0]} {Mouse.MousePress[0]}";
+                Console.Title = $"{mouse.IsButtonPressed(MouseButton.Left)} {mouse.IsButtonDown(MouseButton.Left)} {mouse.IsButtonReleased(MouseButton.Left)}";
 
-                if (Mouse.GetMouseDown(MouseButton.Left))
+                if (mouse.IsButtonPressed(MouseButton.MouseWheel))
                 {
-                    Console.SetCursorPosition(Mouse.X, Mouse.Y);
+                    Console.SetCursorPosition(mouse.X, mouse.Y);
+                    Console.Write("Pressed");
+                }
+
+                if (mouse.IsButtonReleased(MouseButton.MouseWheel))
+                {
+                    Console.SetCursorPosition(mouse.X, mouse.Y);
+                    Console.Write("Release");
+                }
+
+                if (mouse.IsButtonDown(MouseButton.Left))
+                {
+                    Console.SetCursorPosition(mouse.X, mouse.Y);
                     Console.Write('X');
                 }
 
-                if (Mouse.GetMousePressed(MouseButton.Right))
+                if (mouse.IsButtonPressed(MouseButton.Right))
                 {
                     RotateColor();
                 }
 
-                if (Keyboard.KeyUp(Keyboard.VirtualKey.SPACE))
+                if (keyboard.IsButtonReleased(KeyboardButton.Space))
                 {
                     RotateColor();
                 }

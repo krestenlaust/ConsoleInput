@@ -2,7 +2,7 @@
 
 namespace ConsoleInput.WinAPI
 {
-    public struct WINDOW_BUFFER_SIZE_RECORD
+    public struct WINDOW_BUFFER_SIZE_RECORD : IInputRecord
     {
         public COORD dwSize;
 

@@ -3,7 +3,7 @@
 namespace ConsoleInput.WinAPI
 {
     [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Unicode)]
-    public struct KEY_EVENT_RECORD
+    public struct KEY_EVENT_RECORD : IInputRecord
     {
         [FieldOffset(0), MarshalAs(UnmanagedType.Bool)]
         public bool bKeyDown;

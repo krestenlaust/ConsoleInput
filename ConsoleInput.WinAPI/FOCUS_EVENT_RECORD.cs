@@ -3,7 +3,7 @@
 namespace ConsoleInput.WinAPI
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct FOCUS_EVENT_RECORD
+    public struct FOCUS_EVENT_RECORD : IInputRecord
     {
         public uint bSetFocus;
     }
