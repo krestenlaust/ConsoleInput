@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ConsoleInput</id>
+    <version>1.3.0</version>
+    <title></title>
+    <authors>Kresten Laust</authors>
+    <license type="expression">Unlicense</license>
+    <licenseUrl>https://licenses.nuget.org/Unlicense</licenseUrl>
+    <projectUrl>https://github.com/krestenlaust/ConsoleInput</projectUrl>
+    <description>A library for interoping Win32 APIs to get the mouse position relative to console grid. Also includes an implementation for the console keyboard.</description>
+    <releaseNotes>Uploaded to nuget.</releaseNotes>
+    <copyright></copyright>
+    <tags>Console Input Mouse Win32</tags>
+    <dependencies />
+  </metadata>
+</package>
