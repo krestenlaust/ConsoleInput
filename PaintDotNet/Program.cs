@@ -16,10 +16,10 @@ namespace PaintDotNet
             ConsoleColours = Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>().ToList();
             Console.CursorVisible = false;
 
-            ConsoleMouse mouse = new ConsoleMouse();
-            ConsoleKeyboard keyboard = new ConsoleKeyboard();
+            var mouse = new ConsoleMouse();
+            var keyboard = new ConsoleKeyboard();
 
-            IInputManager inputManager = new InputManager();
+            var inputManager = new InputManager();
             inputManager.AddDevice(mouse);
             inputManager.AddDevice(keyboard);
 

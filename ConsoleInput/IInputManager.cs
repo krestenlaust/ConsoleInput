@@ -3,7 +3,7 @@
     public interface IInputManager
     {
         /// <summary>
-        /// Pulls console event queues and calls <see cref="IDevice.Update"/> on ...
+        /// Polls console event queues and calls <see cref="IDevice.Update"/> on ...
         /// </summary>
         void Update();
 
