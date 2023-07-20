@@ -39,6 +39,11 @@ namespace PaintDotNetLegacy
                 {
                     RotateColor();
                 }
+
+                if (Keyboard.KeyDown(Keyboard.VirtualKey.ESCAPE))
+                {
+                    break;
+                }
             }
         }
 

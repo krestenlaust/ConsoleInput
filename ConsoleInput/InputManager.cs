@@ -91,8 +91,6 @@ namespace ConsoleInput
                         case InputEventType.FOCUS_EVENT when device is IInputRecordObserver<FOCUS_EVENT_RECORD> focusObserver:
                             rebuffer = focusObserver.HandleEvent(inputBuffer[i].Event.FocusEvent);
                             break;
-                        default:
-                            break;
                     }
 
                     if (rebuffer == true)

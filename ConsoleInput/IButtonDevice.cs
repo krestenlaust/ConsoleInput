@@ -1,6 +1,6 @@
 ﻿namespace ConsoleInput
 {
-    public interface IButtonDevice<T>
+    public interface IButtonDevice<in T>
     {
         /// <summary>
         /// Returns true while the button is being held down.

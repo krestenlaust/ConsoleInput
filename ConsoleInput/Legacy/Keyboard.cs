@@ -14,7 +14,6 @@
         static Dictionary<VirtualKey, Keystate> statePrevious = new Dictionary<VirtualKey, Keystate>();
 
         static Dictionary<VirtualKey, bool> keyboardKeyDown = new Dictionary<VirtualKey, bool>();
-        // private static Dictionary<VK, ushort> keyboardRepeatCount = new Dictionary<VK, ushort>();
 
         internal enum Keystate
         {
@@ -31,7 +30,9 @@
         public static bool KeyDown(VirtualKey key)
         {
             if (!stateCurrent.TryGetValue(key, out Keystate state))
+            {
                 return false;
+            }
 
             return state == Keystate.Down || state == Keystate.Press;
         }
@@ -120,19 +121,6 @@
         /// <param name="keyEvent">The key event retrived by ReadConsoleInput.</param>
         internal static void HandleKeyboardEvent(KEY_EVENT_RECORD keyEvent)
         {
-            /*
-            if (keyEvent.bKeyDown)
-            {
-                if (keyboardRepeatCount.TryGetValue(keyEvent.wVirtualKeyCode, out ushort value))
-                {
-                    keyboardRepeatCount[keyEvent.wVirtualKeyCode] = (ushort)(keyEvent.wRepeatCount + value);
-                }
-                else
-                {
-                    keyboardRepeatCount[keyEvent.wVirtualKeyCode] = keyEvent.wRepeatCount;
-                }
-            }*/
-
             keyboardKeyDown[(VirtualKey)keyEvent.wVirtualKeyCode] = keyEvent.bKeyDown;
         }
     }

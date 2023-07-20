@@ -12,17 +12,24 @@ namespace ConsoleInput.Devices
         public const int MouseButtonCount = 5;
 
         readonly bool quickSelect;
-        DataFlipFlopArray Dff;
+        readonly DataFlipFlopArray Dff;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConsoleMouse"/> class.
         /// </summary>
         /// <param name="quickSelectEnabled">If enabled, clicking results in normal console selection behavior.</param>
-        public ConsoleMouse(bool quickSelectEnabled=false)
+        public ConsoleMouse(bool quickSelectEnabled)
         {
             Dff = new DataFlipFlopArray(MouseButtonCount);
 
             this.quickSelect = quickSelectEnabled;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConsoleMouse"/> class. Disables quick select mode.
+        /// </summary>
+        public ConsoleMouse() : this(false)
+        {
         }
 
         public short X { get; set; }
