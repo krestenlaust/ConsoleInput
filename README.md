@@ -8,27 +8,25 @@ There are a few ways you can use the library.
 To get started with using the library as a nuget package, just install the package.
 The package is both hosted on [Github](https://github.com/krestenlaust/ConsoleInput/pkgs/nuget/ConsoleInput) and on [Nuget.org](https://www.nuget.org/packages/ConsoleInput)
 
- - `dotnet add package ConsoleInput`
-
+  - `dotnet add package ConsoleInput`
 
 ### Cloning / submodule
 To get started with using the library as a direct dependency, follow these steps:
 
-1. Clone the ConsoleInput repository
-2. Open the solution (with Visual Studio 2022)
-3. Build the solution to ensure all dependencies are resolved and the library is compiled successfully
-4. Add a references to the `ConsoleInput`, `ConsoleInput.WinAPI` and `ConsoleInput.Logic` projects in your solution, and then in your project.
-
+ 1. Clone the ConsoleInput repository
+ 2. Open the solution (with Visual Studio 2022)
+ 3. Build the solution to ensure all dependencies are resolved and the library is compiled successfully
+ 4. Add a references to the `ConsoleInput`, `ConsoleInput.WinAPI` and `ConsoleInput.Logic` projects in your solution, and then in your project.
 
 ### Usage
 To use the ConsoleInput library in your own project, follow these steps:
 
-1. Add the project as dependency using either guide above
-2. Instantiate an input device, e.g. `ConsoleMouse`
-3. Instantiate the input manager, `InputManager`
-4. Add input devices to `InputManager` using `IInputManager.AddDevice(IDevice)`
-5. Poll input using `IInputManager.Update()`
-6. Use the provided methods and properties to read the device state and position
+ 1. Add the project as dependency using either guide above
+ 2. Instantiate an input device, e.g. `ConsoleMouse`
+ 3. Instantiate the input manager, `InputManager`
+ 4. Add input devices to `InputManager` using `IInputManager.AddDevice(IDevice)`
+ 5. Poll input using `IInputManager.Update()`
+ 6. Use the provided methods and properties to read the device state and position
 
 Here's an example of how to use the ConsoleInput library (the following example applies to the new ConsoleInput 2.0):
 

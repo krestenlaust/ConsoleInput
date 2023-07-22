@@ -6,7 +6,7 @@ namespace ConsoleInput.Devices
 {
     public class ConsoleKeyboard : IDevice, IInputRecordObserver<KEY_EVENT_RECORD>, IButtonDevice<KeyboardButton>
     {
-        DataFlipFlopArray Dff;
+        readonly DataFlipFlopArray Dff;
 
         public ConsoleKeyboard()
         {

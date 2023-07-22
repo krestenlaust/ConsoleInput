@@ -5,7 +5,7 @@ using ConsoleInput;
 
 namespace PaintDotNetLegacy
 {
-    class Program
+    static class Program
     {
         static List<ConsoleColor> ConsoleColours;
 

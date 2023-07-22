@@ -7,7 +7,7 @@ using ConsoleInput.Devices;
 
 namespace PaintDotNet
 {
-    class Program
+    static class Program
     {
         static List<ConsoleColor> ConsoleColours;
 
