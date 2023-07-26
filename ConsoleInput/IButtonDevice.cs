@@ -4,6 +4,7 @@
     /// Represents a device which has buttons.
     /// </summary>
     /// <typeparam name="T">A type that represents the range of buttons, it's able to support. Typically, an enumeration.</typeparam>
+    public interface IButtonDevice<in T> : IDevice
     {
         /// <summary>
         /// Returns true while the button is being held down.
