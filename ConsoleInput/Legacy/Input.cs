@@ -1,9 +1,9 @@
-﻿namespace ConsoleInput
-{
-    using System;
-    using ConsoleInput.WinAPI;
-    using static ConsoleInput.WinAPI.InputEventHandling;
+﻿using System;
+using ConsoleInput.WinAPI;
+using static ConsoleInput.WinAPI.InputEventHandling;
 
+namespace ConsoleInput
+{
     /// <summary>
     /// Handles console input.
     /// </summary>
@@ -19,7 +19,7 @@
         /// Whether to ignore the mouse when polling events. If ignored then returns mouse events to the ConsoleInput buffer.
         /// </summary>
         public static bool IgnoreMouse;
-        
+
         static IntPtr stdInHandle;
 
         /// <summary>

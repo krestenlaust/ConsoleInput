@@ -5,13 +5,17 @@ using ConsoleInput;
 
 namespace PaintDotNetLegacy
 {
+    /// <summary>
+    /// Example class using legacy API (pre-2.0).
+    /// </summary>
+    [Obsolete]
     static class Program
     {
-        static List<ConsoleColor> ConsoleColours;
+        static List<ConsoleColor> consoleColours;
 
         static void Main(string[] args)
         {
-            ConsoleColours = Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>().ToList();
+            consoleColours = Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>().ToList();
 
             Console.CursorVisible = false;
             Input.Setup(true, true);
@@ -50,7 +54,7 @@ namespace PaintDotNetLegacy
         static void RotateColor()
         {
             ConsoleColor currentColor = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColours.SkipWhile(x => x != currentColor).Skip(1).DefaultIfEmpty(ConsoleColours[0]).FirstOrDefault();
+            Console.ForegroundColor = consoleColours.SkipWhile(x => x != currentColor).Skip(1).DefaultIfEmpty(consoleColours[0]).FirstOrDefault();
 
             string colorName = Enum.GetName(typeof(ConsoleColor), Console.ForegroundColor);
             Console.Title = $"Selected Color: {colorName}";

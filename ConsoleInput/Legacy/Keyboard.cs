@@ -1,9 +1,9 @@
-﻿namespace ConsoleInput
-{
-    using System;
-    using System.Collections.Generic;
-    using ConsoleInput.WinAPI;
+﻿using System;
+using System.Collections.Generic;
+using ConsoleInput.WinAPI;
 
+namespace ConsoleInput
+{
     /// <summary>
     /// Contains logic for handling keyboard states based on event data.
     /// </summary>

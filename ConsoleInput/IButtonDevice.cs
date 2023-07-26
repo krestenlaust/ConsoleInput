@@ -1,6 +1,9 @@
 ﻿namespace ConsoleInput
 {
-    public interface IButtonDevice<in T>
+    /// <summary>
+    /// Represents a device which has buttons.
+    /// </summary>
+    /// <typeparam name="T">A type that represents the range of buttons, it's able to support. Typically, an enumeration.</typeparam>
     {
         /// <summary>
         /// Returns true while the button is being held down.

@@ -1,8 +1,8 @@
-﻿namespace ConsoleInput
-{
-    using System;
-    using ConsoleInput.WinAPI;
+﻿using System;
+using ConsoleInput.WinAPI;
 
+namespace ConsoleInput
+{
     /// <summary>
     /// Contains logic for handling mouse button states and position-data based on events retrieved by Windows Console API.
     /// </summary>
@@ -15,29 +15,29 @@
         /// In short: True the whole duration of a mouse press.
         /// </summary>
         [Obsolete("Use new mouse API instead.")]
-        public static readonly bool[] MouseDown = new bool[MOUSE_BUTTON_COUNT];
+        public static readonly bool[] MouseDown = new bool[MouseButtonCount];
 
         /// <summary>
         /// Describes whether a given mouse button (by index) is just released.
         /// A given button in <c>MouseUp</c> is true the only the first update after it was released.
         /// </summary>
         [Obsolete("Use new mouse API instead.")]
-        public static readonly bool[] MouseUp = new bool[MOUSE_BUTTON_COUNT];
+        public static readonly bool[] MouseUp = new bool[MouseButtonCount];
 
         /// <summary>
         /// Describes whether a given mouse button (by index) is just pressed.
         /// A given button in <c>MousePress</c> is true only the first update after it was pressed.
         /// </summary>
         [Obsolete("Use new mouse API instead.")]
-        public static readonly bool[] MousePress = new bool[MOUSE_BUTTON_COUNT];
+        public static readonly bool[] MousePress = new bool[MouseButtonCount];
 
         /// <summary>
         /// The amount of buttons available.
         /// </summary>
-        internal const int MOUSE_BUTTON_COUNT = 5;
+        internal const int MouseButtonCount = 5;
 
-        static readonly bool[] mouseDownPrevious = new bool[MOUSE_BUTTON_COUNT];
-        static readonly bool[] mouseDownCurrent = new bool[MOUSE_BUTTON_COUNT];
+        static readonly bool[] MouseDownPrevious = new bool[MouseButtonCount];
+        static readonly bool[] MouseDownCurrent = new bool[MouseButtonCount];
 
         /// <summary>
         /// Gets the column position of mouse (based on console window).
@@ -49,8 +49,18 @@
         /// </summary>
         public static short Y { get; private set; } = 0;
 
+        /// <summary>
+        /// Gets whether the mouse button is currently held down.
+        /// </summary>
+        /// <param name="button">The mouse button to check.</param>
+        /// <returns>The mouse button down state.</returns>
         public static bool GetMouseDown(MouseButton button) => MouseDown[(int)button];
 
+        /// <summary>
+        /// Gets whether the mouse button has just been pressed down (only true for the first clock-cycle after).
+        /// </summary>
+        /// <param name="button">The mouse button to check.</param>
+        /// <returns>The mouse button just-pressed state.</returns>
         public static bool GetMousePressed(MouseButton button) => MousePress[(int)button];
 
         /// <summary>
@@ -59,14 +69,14 @@
         internal static void Update()
         {
             // mousebutton held down
-            for (int i = 0; i < MOUSE_BUTTON_COUNT; i++)
+            for (int i = 0; i < MouseButtonCount; i++)
             {
                 MouseUp[i] = false;
                 MousePress[i] = false;
 
-                if (mouseDownCurrent[i] != mouseDownPrevious[i])
+                if (MouseDownCurrent[i] != MouseDownPrevious[i])
                 {
-                    if (mouseDownCurrent[i])
+                    if (MouseDownCurrent[i])
                     {
                         MousePress[i] = true;
                         MouseDown[i] = true;
@@ -78,7 +88,7 @@
                     }
                 }
 
-                mouseDownPrevious[i] = mouseDownCurrent[i];
+                MouseDownPrevious[i] = MouseDownCurrent[i];
             }
         }
 
@@ -102,9 +112,9 @@
                     break;
                 case 0:
                     // mousebutton pressed or up
-                    for (int n = 0; n < MOUSE_BUTTON_COUNT; n++)
+                    for (int n = 0; n < MouseButtonCount; n++)
                     {
-                        mouseDownCurrent[n] = (mouseEvent.dwButtonState & (1 << n)) != 0;
+                        MouseDownCurrent[n] = (mouseEvent.dwButtonState & (1 << n)) != 0;
                     }
 
                     break;

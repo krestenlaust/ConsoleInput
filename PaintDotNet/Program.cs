@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using ConsoleInput;
 using ConsoleInput.Devices;
 
 namespace PaintDotNet
 {
+    /// <summary>
+    /// Example class using new 2.0 API.
+    /// </summary>
     static class Program
     {
-        static List<ConsoleColor> ConsoleColours;
+        static List<ConsoleColor> consoleColours;
 
         static void Main(string[] args)
         {
-            ConsoleColours = Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>().ToList();
+            consoleColours = Enum.GetValues(typeof(ConsoleColor)).Cast<ConsoleColor>().ToList();
             Console.CursorVisible = false;
 
             var mouse = new ConsoleMouse();
@@ -64,7 +66,7 @@ namespace PaintDotNet
         static void RotateColor()
         {
             ConsoleColor currentColor = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColours.SkipWhile(x => x != currentColor).Skip(1).DefaultIfEmpty(ConsoleColours[0]).FirstOrDefault();
+            Console.ForegroundColor = consoleColours.SkipWhile(x => x != currentColor).Skip(1).DefaultIfEmpty(consoleColours[0]).FirstOrDefault();
 
             string colorName = Enum.GetName(typeof(ConsoleColor), Console.ForegroundColor);
             Console.Title = $"Selected Color: {colorName}";

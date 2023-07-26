@@ -1,6 +1,8 @@
 ﻿namespace ConsoleInput
 {
-    public interface ICursorDevice
+    /// <summary>
+    /// Represents a device which outputs console cursor positions.
+    /// </summary>
     {
         /// <summary>
         /// Gets the column position of the cursor (based on console window).

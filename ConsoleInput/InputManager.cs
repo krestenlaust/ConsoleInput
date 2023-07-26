@@ -5,6 +5,9 @@ using static ConsoleInput.WinAPI.InputEventHandling;
 
 namespace ConsoleInput
 {
+    /// <summary>
+    /// Keeps track of all input devices, and serves them update-signals.
+    /// </summary>
     public class InputManager : IInputManager
     {
         readonly ICollection<IDevice> devices = new List<IDevice>();
@@ -21,7 +24,7 @@ namespace ConsoleInput
         /// <summary>
         /// Adds the input device, and recalculates the preferred console mode.
         /// </summary>
-        /// <param name="device"></param>
+        /// <param name="device"><inheritdoc/></param>
         public void AddDevice(IDevice device)
         {
             devices.Add(device);
@@ -35,7 +38,7 @@ namespace ConsoleInput
         /// <summary>
         /// Adds the input device, and recalculates the preferred console mode.
         /// </summary>
-        /// <param name="device"></param>
+        /// <param name="device"><inheritdoc/></param>
         public void RemoveDevice(IDevice device)
         {
             devices.Remove(device);
